@@ -37,7 +37,7 @@ init_environ() {
     )
 
     INSTALL="${backends[$distro]}"
-    PYTHON="${distro}" == "termux" ? "python" : "python3"
+    PYTHON="$([[ "$distro" == "termux" ]] && echo "python" || echo "python3")"
     SUDO="$([[ "$distro" == "termux" ]] && echo "" || echo "sudo")"
     PIP="$PYTHON -m pip"
 }
@@ -78,8 +78,7 @@ while true; do
     echo "Press 1 To Start SMS Bomber"
     echo "Press 2 To Start CALL Bomber (Working alla)"
     echo "Press 3 To Start MAIL Bomber (Working alla)"
-    echo "Press 4 To Update the Providers List (increase messaging power)"
-    echo "Press 5 To Exit"
+    echo "Press 4 To Exit"
     read -r ch
     clear
 
@@ -88,14 +87,6 @@ while true; do
         2) $PYTHON bomber.py --call; exit ;;
         3) $PYTHON bomber.py --mail; exit ;;
         4)
-            echo -e "Downloading Latest Files..."
-            rm -f .update
-            $PYTHON bomber.py --update
-            echo -e "RUN CJ BOMBER Again..."
-            pause
-            exit
-            ;;
-        5)
             banner
             exit
             ;;
