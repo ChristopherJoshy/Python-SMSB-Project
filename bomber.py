@@ -55,7 +55,7 @@ def bann_text():
 
 def check_intr():
     try:
-        requests.get("https://motherfuckingwebsite.com")
+        requests.get("https://www.google.com", timeout=5)  # Using Google for internet connectivity check
     except Exception:
         bann_text()
         print("Poor internet connection detected")
