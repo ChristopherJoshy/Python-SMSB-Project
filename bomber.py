@@ -187,7 +187,7 @@ def selectnode(mode="sms"):
 
 if __name__ == '__main__':
     __VERSION__ = get_version()
-    __CONTRIBUTORS__ = ["CJ"]
+    __CONTRIBUTORS__ = ["CJ","AI"]
     ALL_COLORS = [Fore.RED, Fore.YELLOW, Fore.BLUE, Fore.GREEN, Fore.CYAN, Fore.MAGENTA]
     RESET_ALL = Style.RESET_ALL
 
